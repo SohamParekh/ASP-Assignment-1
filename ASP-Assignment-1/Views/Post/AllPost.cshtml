@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ASP_Assignment_1.Models.Post>
+
+<h1>Other-Post</h1>
+@foreach (var item in Model)
+{
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3 class="pull-right">@item.Content</h3>
+
+                </div>
+                <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary" asp-route-Like="@item.Like">Like Post</a>
+                <a class="btn btn-primary" asp-route-PostId="@item.PostId" asp-action="Index" asp-controller="Comment">Add Comment</a>
+                <a class="btn btn-primary" asp-route-PostId="@item.PostId" asp-action="Details" asp-controller="Home">Add Comment</a>
+            </div>
+        </div>
+    </div>
+</div>
+}
+<div>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Post">Add Post</a>
+    <a class="btn btn-primary" asp-action="MyPost" asp-controller="Post">My Post</a>
+
+</div>
