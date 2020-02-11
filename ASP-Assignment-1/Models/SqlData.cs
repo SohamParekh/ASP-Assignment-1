@@ -34,9 +34,10 @@ namespace ASP_Assignment_1.Models
             return query;
 
         }
-        public IEnumerable<Post> GetAllPost()
+        public IEnumerable<Post> GetPost(int id)
         {
             return from p in db.Posts
+                   where p.PostId == id
                    select p;
         }
         public IEnumerable<Post> GetPostById(int id)
@@ -56,7 +57,7 @@ namespace ASP_Assignment_1.Models
         public IEnumerable<Post> GetOtherPostById(int id)
         {
             return from p in db.Posts
-                   where p.UserId != id
+                   where p.PostId != id
                    select p;
         }
 
@@ -72,16 +73,6 @@ namespace ASP_Assignment_1.Models
 
         }
 
-        public Post deletePost(int postId)
-        {
-            var posts = db.Posts.Find(postId);
-            if (posts != null)
-            {
-                db.Posts.Remove(posts);
-            }
-            return posts;
-        }
-
         public Comment AddComment(Comment newComment)
         {
             db.Comments.Add(newComment);
@@ -92,7 +83,7 @@ namespace ASP_Assignment_1.Models
         public IEnumerable<Comment> GetCommentByPostId(int postId)
         {
             return from cd in db.Comments
-                   where cd.UserId == postId
+                   where cd.PostId == postId
                    select cd;
         }
 

@@ -19,13 +19,12 @@ namespace ASP_Assignment_1.Models
 
         IEnumerable<Post> GetOtherPostById(int id);
         void incrementLike(int postId);
-        Post deletePost(int postId);
 
         Comment AddComment(Comment newComment);
 
         IEnumerable<Comment> GetCommentByPostId(int postId);
 
         IEnumerable<Comment> GetAllComment();
-        IEnumerable<Post> GetAllPost();
+        IEnumerable<Post> GetPost(int id);
     }
 }

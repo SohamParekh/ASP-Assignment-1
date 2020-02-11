@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ASP_Assignment_1.Models;
+using ASP_Assignment_1.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -50,10 +51,14 @@ namespace WebApplication2.Controllers
             pd.AddUser(userDetail);
             return RedirectToAction("MyPost", "Post",new { id });
         }
-        public IActionResult Details(int id)
+        public ViewResult Details(int PostId)
         {
-            var q = pd.GetPostById(id);
-            return View(q);
+            PostCommentViewModel postCommentViewModel = new PostCommentViewModel()
+            {
+                Post = pd.GetPost(PostId),
+                Comment = pd.GetCommentByPostId(PostId)
+            };
+            return View(postCommentViewModel);
         }
         
         public IActionResult LikePost(int postId)

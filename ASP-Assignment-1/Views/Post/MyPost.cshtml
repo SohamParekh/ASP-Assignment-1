@@ -1,20 +1,26 @@
 ﻿@model IEnumerable<ASP_Assignment_1.Models.Post>
 
 <h1>MyPost</h1>
-@foreach (var item in Model)
-{
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <div class="thumbnail">
-            <div class="caption">
-                <h3 class="pull-right">@item.Content</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            @foreach (var item in Model)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <h3 class="pull-right">@item.Content</h3>
+                        </div>
 
-            </div>
-            <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary" asp-route-Like="@item.Like">Like Post</a>
-            <a class="btn btn-primary" asp-route-PostId="@item.PostId" asp-action="Index" asp-controller="Comment">Add Comment</a>
-            <a class="btn btn-primary" asp-route-PostId="@item.PostId" asp-action="Details" asp-controller="Home"></a>
+                        <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary m-1" asp-route-Like="@item.Like">Like Post</a>
+                        <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Index" asp-controller="Comment">Add Comment</a>
+                        <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Details" asp-controller="Home">View Post</a>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-}
+</div>
 <div>
     <a class="btn btn-primary" asp-action="Index" asp-controller="Post">Add Post</a>
     <a class="btn btn-primary" asp-action="AllPost" asp-controller="Post">All Post</a>
