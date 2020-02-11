@@ -67,7 +67,7 @@ namespace ASP_Assignment_1.Models
             {
                 if (i.PostId == postId)
                 {
-                    i.Like += 1;
+                    i.Like++;
                 }
             }
 

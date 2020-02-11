@@ -12,7 +12,7 @@
                             <h3 class="pull-right">@item.Content</h3>
                         </div>
 
-                        <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary m-1" asp-route-Like="@item.Like">Like Post</a>
+                        <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary m-1" asp-action="LikePost" asp-controller="Home" asp-route-PostId="@item.PostId">Like Post</a>
                         <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Index" asp-controller="Comment">Add Comment</a>
                         <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Details" asp-controller="Home">View Post</a>
                     </div>

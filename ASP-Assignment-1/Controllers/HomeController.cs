@@ -65,7 +65,7 @@ namespace WebApplication2.Controllers
         {
             pd.incrementLike(postId);
             pd.Commit();
-            return RedirectToAction("MyPost", "Post");
+            return RedirectToAction("AllPost", "Post");
         }
         
     }
