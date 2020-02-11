@@ -44,8 +44,10 @@ namespace ASP_Assignment_1.Controllers
         }
         public IActionResult AllPost(int id)
         {
-            Id = id;
+            //Id = id;
             var post1 = pd.GetOtherPostById(id);
+            pd.GetOtherPostById(id);
+            //return RedirectToAction("AllPost","Post");
             return View(post1);
         }
     }
