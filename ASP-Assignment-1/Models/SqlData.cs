@@ -100,5 +100,15 @@ namespace ASP_Assignment_1.Models
                         select u;
             return query;
         }
+
+        public Post DeletePost(int postId)
+        {
+            Post post = db.Posts.FirstOrDefault(p => p.PostId == postId);
+            if(post != null)
+            {
+                db.Posts.Remove(post);
+            }
+            return post;
+        }
     }
 }

@@ -145,3 +145,4 @@ D:\cs\ASP-Assignment-1\ASP-Assignment-1\obj\Debug\netcoreapp3.1\Razor\Views\Comm
 D:\cs\ASP-Assignment-1\ASP-Assignment-1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
 D:\cs\ASP-Assignment-1\ASP-Assignment-1\obj\Debug\netcoreapp3.1\Razor\Views\Post\AllPost.cshtml.g.cs
 D:\cs\ASP-Assignment-1\ASP-Assignment-1\obj\Debug\netcoreapp3.1\Razor\Views\Home\LikePost.cshtml.g.cs
+D:\cs\ASP-Assignment-1\ASP-Assignment-1\obj\Debug\netcoreapp3.1\Razor\Views\Post\Delete.cshtml.g.cs

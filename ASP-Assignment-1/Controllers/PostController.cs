@@ -46,9 +46,15 @@ namespace ASP_Assignment_1.Controllers
         {
             //Id = id;
             var post1 = pd.GetOtherPostById(id);
-            pd.GetOtherPostById(id);
+            //pd.GetOtherPostById(id);
             //return RedirectToAction("AllPost","Post");
             return View(post1);
+        }
+        public IActionResult Delete(int postId)
+        {
+            pd.DeletePost(postId);
+            pd.Commit();
+            return RedirectToAction("MyPost","Post");
         }
     }
 }

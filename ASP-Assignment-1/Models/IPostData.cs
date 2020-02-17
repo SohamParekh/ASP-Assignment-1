@@ -9,6 +9,7 @@ namespace ASP_Assignment_1.Models
     {
         User AddUser(User newUser);
         Post AddPost(Post newPost);
+        Post DeletePost(int postId);
 
         int Commit();
 
