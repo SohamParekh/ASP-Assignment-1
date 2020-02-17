@@ -35,21 +35,26 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public IActionResult Index(User userDetail)
         {
-            Users = pd.GetUserByNameAndEmail(userDetail.Name, userDetail.Email).ToList();
-            if (Users.Count() == 0)
+            if (ModelState.IsValid)
             {
-                pd.AddUser(userDetail);
-                ViewBag.message = "User registered!";
+                Users = pd.GetUserByNameAndEmail(userDetail.Name, userDetail.Email).ToList();
+                if (Users.Count() == 0)
+                {
+                    pd.AddUser(userDetail);
+                    ViewBag.message = "User registered!";
 
+                }
+                else
+                {
+
+                    id = Users[0].UserId;
+                    return RedirectToAction("MyPost", "Post", new { id });
+                }
+                pd.AddUser(userDetail);
+                return RedirectToAction("MyPost", "Post", new { id });
             }
             else
-            {
-
-                id = Users[0].UserId;
-                return RedirectToAction("MyPost", "Post",new { id});
-            }
-            pd.AddUser(userDetail);
-            return RedirectToAction("MyPost", "Post",new { id });
+                return View();
         }
         public ViewResult Details(int PostId)
         {
