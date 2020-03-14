@@ -13,24 +13,27 @@ namespace ASP_Assignment_1.Controllers
         public int postID { get; set; }
         
 
-        [BindProperty]
-        public int Dummy { get; set; }
         public CommentController(IPostData pd)
         {
             this.pd = pd;
         }
-        public IActionResult Index(int postId, int dummy)
+        public IActionResult Index(int postId)
         {
             postID = postId;
-            Dummy = dummy;
             return View();
         }
         [HttpPost]
-        public IActionResult Index(Comment comment)
+        public IActionResult Index(Comment comment,int id)
         {
             pd.AddComment(comment);
             pd.Commit();
-            return RedirectToAction("MyPost","Post");
+            return RedirectToAction("MyPost","Post",new { id});
+        }
+        public IActionResult Delete(int CommentId,int PostId)
+        {
+            pd.DeleteComment(CommentId);
+            pd.Commit();
+            return RedirectToAction("Details", "Home",new { PostId });
         }
     }
 }

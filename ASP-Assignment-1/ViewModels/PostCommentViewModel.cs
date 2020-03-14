@@ -10,5 +10,6 @@ namespace ASP_Assignment_1.ViewModels
     {
         public IEnumerable<Post> Post { get; set; }
         public IEnumerable<Comment> Comment { get; set; }
+        public IEnumerable<SharePost> sharePosts { get; set; }
     }
 }

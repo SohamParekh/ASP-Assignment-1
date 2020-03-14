@@ -16,5 +16,6 @@ namespace ASP_Assignment_1.Models
         public DbSet<User> User { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<SharePost> sharePosts { get; set; }
     }
 }

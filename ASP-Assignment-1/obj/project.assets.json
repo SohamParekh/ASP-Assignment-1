@@ -8267,11 +8267,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cs\\ASP-Assignment-1\\ASP-Assignment-1\\ASP-Assignment-1.csproj",
+      "projectUniqueName": "D:\\C#\\ASP-Assignment-1\\ASP-Assignment-1\\ASP-Assignment-1.csproj",
       "projectName": "ASP-Assignment-1",
-      "projectPath": "D:\\cs\\ASP-Assignment-1\\ASP-Assignment-1\\ASP-Assignment-1.csproj",
+      "projectPath": "D:\\C#\\ASP-Assignment-1\\ASP-Assignment-1\\ASP-Assignment-1.csproj",
       "packagesPath": "C:\\Users\\SOHAM\\.nuget\\packages\\",
-      "outputPath": "D:\\cs\\ASP-Assignment-1\\ASP-Assignment-1\\obj\\",
+      "outputPath": "D:\\C#\\ASP-Assignment-1\\ASP-Assignment-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SOHAM\\AppData\\Roaming\\NuGet\\NuGet.Config",

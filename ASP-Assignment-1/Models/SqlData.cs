@@ -20,6 +20,12 @@ namespace ASP_Assignment_1.Models
             db.SaveChanges();
             return newUser;
         }
+        public SharePost AddSharePost(SharePost newSharePost)
+        {
+            db.sharePosts.Add(newSharePost);
+            db.SaveChanges();
+            return newSharePost;
+        }
 
         public int Commit()
         {
@@ -32,7 +38,6 @@ namespace ASP_Assignment_1.Models
                         where (u.Name.Equals(name) && u.Email.Equals(email))
                         select u;
             return query;
-
         }
         public IEnumerable<Post> GetPost(int id)
         {
@@ -46,6 +51,12 @@ namespace ASP_Assignment_1.Models
                    where p.UserId == id
                    select p;
         }
+        public IEnumerable<SharePost> GetSharePostByUserId(int id)
+        {
+            return from s in db.sharePosts
+                   where s.UserId == id
+                   select s;
+        }
 
         public Post AddPost(Post newPost)
         {
@@ -54,10 +65,10 @@ namespace ASP_Assignment_1.Models
             return newPost;
         }
 
-        public IEnumerable<Post> GetOtherPostById(int id)
+        public IEnumerable<Post> GetOtherPostById(int PostId)
         {
             return from p in db.Posts
-                   where p.PostId != id
+                   where p.PostId != PostId
                    select p;
         }
 
@@ -66,6 +77,17 @@ namespace ASP_Assignment_1.Models
             foreach (var i in db.Posts)
             {
                 if (i.PostId == postId)
+                {
+                    i.Like++;
+                }
+            }
+
+        }
+        public void incrementLikeComment(int CommentId)
+        {
+            foreach (var i in db.Comments)
+            {
+                if (i.CommentId == CommentId)
                 {
                     i.Like++;
                 }
@@ -110,5 +132,25 @@ namespace ASP_Assignment_1.Models
             }
             return post;
         }
+        public Comment DeleteComment(int CommentId)
+        {
+            Comment comment = db.Comments.FirstOrDefault(p => p.CommentId == CommentId);
+            if (comment != null)
+            {
+                db.Comments.Remove(comment);
+            }
+            return comment;
+        }
+        public SharePost DeleteSharePost(int postId)
+        {
+            SharePost post = db.sharePosts.FirstOrDefault(p => p.PostId == postId);
+            if (post != null)
+            {
+                db.sharePosts.Remove(post);
+            }
+            return post;
+        }
+
+
     }
 }

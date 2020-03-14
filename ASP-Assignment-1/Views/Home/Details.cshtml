@@ -9,7 +9,8 @@
 @foreach (var item in Model.Post)
 {
     <h2>@item.Content</h2>
-    <div>Like-Count</div> <h5>@item.Like</h5>
+    <div>Like-Count</div>
+    <h5>@item.Like</h5>
 
 }
 <h1>Comments</h1>
@@ -17,5 +18,9 @@
 @foreach (var item in Model.Comment)
 {
     <h3>@item.Content</h3>
+    <h5>@item.Like</h5>
+    <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary m-1" asp-action="LikeComment" asp-controller="Home" asp-route-Like="@item.Like" asp-route-CommentId="@item.CommentId" asp-route-PostId="@item.PostId">Like Comment</a>
+    <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-route-CommentId="@item.CommentId" asp-action="Delete" asp-controller="Comment">Delete Comment</a>
+    <hr />
 
 }

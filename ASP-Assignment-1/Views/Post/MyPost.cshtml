@@ -1,10 +1,10 @@
-﻿@model IEnumerable<ASP_Assignment_1.Models.Post>
+﻿@model PostCommentViewModel
 
 <h1>MyPost</h1>
 <div class="container">
     <div class="row">
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.Post)
         {
             <div class="col-lg-4">
                 <div class="card" style="margin-bottom:10px">
@@ -13,10 +13,32 @@
                             <h3 class="pull-right">@item.Content</h3>
                         </div>
                         <hr />
-                        <a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary m-1" asp-action="LikePost" asp-controller="Home" asp-route-PostId="@item.PostId">Like Post</a>
+                        @*<a type="submit" class="glyphicon glyphicon-thumbs-up btn btn-primary m-1" asp-action="LikePost" asp-controller="Home" asp-route-PostId="@item.PostId">Like Post</a>*@
                         <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Index" asp-controller="Comment">Add Comment</a>
                         <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Details" asp-controller="Home">View Post</a>
-                        <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="Delete" asp-controller="Post">Delete Post</a>
+                        <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-route-UserId="@item.UserId" asp-action="Delete" asp-controller="Post">Delete Post</a>
+                        <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-route-UserId="@item.UserId" asp-action="SharePost" asp-controller="Post">Share Post</a>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <h1>Shared Post</h1>
+
+    <div class="row">
+
+        @foreach (var item in Model.sharePosts)
+        {
+            <div class="col-lg-4">
+                <div class="card" style="margin-bottom:10px">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <h3 class="pull-right">@item.post.Content</h3>
+                        </div>
+                        <hr />
+                        <a class="btn btn-primary m-1" asp-route-PostId="@item.PostId" asp-action="DeleteSharePost" asp-controller="Post">Delete Post</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +47,7 @@
 
 </div>
 <div>
-    <a class="btn btn-primary" asp-action="Index" asp-controller="Post">Add Post</a>
-    <a class="btn btn-primary" asp-action="AllPost" asp-controller="Post">All Post</a>
 
+        <a class="btn btn-primary" asp-action="Index" asp-controller="Post" >Add Post</a>
+        <a class="btn btn-primary" asp-action="AllPost" asp-controller="Post">All Post</a>
 </div>

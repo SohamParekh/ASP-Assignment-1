@@ -9,7 +9,7 @@ namespace ASP_Assignment_1.Models
     {
         public int CommentId { get; set; }
         public int PostId { get; set; }
-        public int UserId { get; set; }
+        public int Like { get; set; }
         public string Content { get; set; }
         public Post Post { get; set; }
         

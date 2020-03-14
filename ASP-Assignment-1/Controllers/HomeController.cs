@@ -46,9 +46,8 @@ namespace WebApplication2.Controllers
                 }
                 else
                 {
-
-                    id = Users[0].UserId;
-                    return RedirectToAction("MyPost", "Post", new { id });
+                    //id = Users[0].UserId;
+                    return RedirectToAction("MyPost", "Post", new { id = Users[0].UserId });
                 }
                 pd.AddUser(userDetail);
                 return RedirectToAction("MyPost", "Post", new { id });
@@ -72,6 +71,12 @@ namespace WebApplication2.Controllers
             pd.Commit();
             return RedirectToAction("AllPost", "Post");
         }
-        
+        public IActionResult LikeComment(int CommentId,int PostId)
+        {
+            pd.incrementLikeComment(CommentId);
+            pd.Commit();
+            return RedirectToAction("Details", "Home",new { PostId});
+        }
+
     }
 }
