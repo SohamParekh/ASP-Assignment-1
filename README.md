@@ -1,4 +1,4 @@
-For this assignment you need to create a message board using .Net core.
+#For this assignment you need to create a message board using .Net core.
 Requirements for the message board. (You are free to assume your own design flow but keep it simple and stick to the requirements) -
 
 1-Anyone can post a message.
